@@ -5,6 +5,9 @@ class Roster():
     and return the next player'''
     def __init__(self):
         self.roster = []
+        pass
+    def test_import(self):
+        print('Roster')
 
     def add_player(self, player1, player2):
         '''add players to the roster from console'''
