@@ -25,6 +25,7 @@ root                    (project root folder)
   +-- game              (specific game classes)
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
+  +-- move.py           (Information Holder)
 +-- README.md           (general info)
 ```
 
@@ -37,3 +38,4 @@ root                    (project root folder)
 * # TODO: Add your names and emails here
 * Lauren Warren sor18014@byui.edu
 * Weston Ford for19008@byui.edu
+* Zach Wilson zachwil99@byui.edu
