@@ -19,6 +19,9 @@ class Move():
         
         self._code = code
 
+    def test_import(self):
+        print('Move')
+
     def get_code(self):
         """Returns the code.
         
