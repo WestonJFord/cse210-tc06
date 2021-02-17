@@ -1,3 +1,0 @@
-
-class Director:
-    pass
