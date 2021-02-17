@@ -3,6 +3,7 @@
 #Unit 6
 
 #imports
+from . import console
 from .board import Board
 from .console import Console
 from .move import Move

@@ -1,28 +1,31 @@
 import random
 
+from mastermind.game import roster
+
 
 class Board:
     """Handles the board and all of it's requisite variables"""
 
     def __init__(self):
-        self._piles = []
+        self.numbers_to_guess = []
         self._prepare()
 
-    def apply(self, move):
+    def is_guessed(self, guess):
         """
         applies move to surface of board
         removes a number of stones from the pile
         attr: move an instance of Move
         Returns:
         """
-        pile = move.get_pile()
-        stones = move.get_stones()
-        try:
-            self._piles[pile] = self._piles[pile][: stones * -2]
-        except IndexError:
-            print("That row does not exist or have that many stones")
+        _guess = guess.get_guess()
+        for i in range(4):
+            if _guess[i] != self.numbers_to_guess[i]:
+                return False
 
-    def is_empty(self):
+        # Only called if all numbers return true
+        return True
+
+    def check_guess(self, guess):
         """
         determines if _piles is empty
         Returns:
@@ -31,16 +34,20 @@ class Board:
         """
 
         # if row is empty remove it from the object
-        emptyRows = 0
+        correct_guesses = 0
 
-        for pile in self._piles:
-            if len(pile) == 0:
-                emptyRows += 1
+        if not guess:
+            return "----"
 
-        if emptyRows == len(self._piles):
-            return True
+        for _ in self.numbers_to_guess:
+            correct_guesses += 1
 
-        return False
+        guess_string = ""
+        for i in range(correct_guesses):
+            guess_string += "x"
+        for i in range(4 - correct_guesses):
+            guess_string += "o"
+        return guess_string
 
     def to_string(self):
         """
@@ -48,17 +55,16 @@ class Board:
         Returns: a string
         """
         board_string = "--------------------"
-        for i in range(0, len(self._piles)):
-            new_row = f"\n{i}: {self._piles[i]}"
-            board_string += new_row
+        board_string += f"\nPlayer {roster.getCurrent}: {roster.player1_guess[-1]}, {self.check_guess(roster.player1_guess)}"
+        board_string += f"\nPlayer {roster.player2}: {roster.player1_guess[-1]}, {self.check_guess(roster.player2_guess)}"
 
         board_string += "\n--------------------"
         return board_string
 
     def _prepare(self):
         """
-        sets up the board with a random number of piles and a random number of stones in each pile
+        sets up the board with a random set of 4 digits
         """
         # Build board
-        for _ in range(random.randint(2, 5)):
-            self._piles.append("0 " * random.randint(1, 9))
+        for _ in range(4):
+            self.numbers_to_guess.append(random.randint(1, 9))

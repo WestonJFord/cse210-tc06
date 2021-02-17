@@ -11,6 +11,9 @@ class Console:
         prompt (string): The prompt to display on each line.
     """
 
+    def __init__(self):
+        self.player_num = 1
+
     def read(self, prompt):
         """Gets text input from the user through the screen.
 
@@ -22,6 +25,16 @@ class Console:
             string: The user's input as text.
         """
         return input(prompt)
+
+    def get_name(self) -> str:
+        '''
+        asks player for their name and returns it
+        Args:
+            self (Screen): An instance of Screen.
+        Returns: name of player
+        '''
+        name = input(f"Enter a name for player {self.player_num}: ")
+        return name
 
     def read_number(self, prompt):
         """Gets numerical input from the user through the screen.
