@@ -36,6 +36,9 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add your names and emails here
+
+* Porter Mecham, porterme@byui.edu
 * Lauren Warren sor18014@byui.edu
 * Weston Ford for19008@byui.edu
 * Zach Wilson zachwil99@byui.edu
+
