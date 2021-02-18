@@ -1,8 +1,5 @@
 import random
 
-from mastermind.game import roster
-
-
 class Board:
     """Handles the board and all of it's requisite variables"""
 
@@ -49,14 +46,18 @@ class Board:
             guess_string += "o"
         return guess_string
 
-    def to_string(self):
+    def to_string(self, roster, player_one_move, player_two_move) -> str:
         """
-        convert board data to a string
-        Returns: a string
+            convert board data to a string
+            Returns: a string
         """
         board_string = "--------------------"
-        board_string += f"\nPlayer {roster.getCurrent}: {roster.player1_guess[-1]}, {self.check_guess(roster.player1_guess)}"
-        board_string += f"\nPlayer {roster.player2}: {roster.player1_guess[-1]}, {self.check_guess(roster.player2_guess)}"
+        board_string += (
+            f"\nPlayer {roster.roster[0]} 1:{player_one_move.get_code()}, {player_one_move.get_guess()}"
+        )
+        board_string += (
+            f"\nPlayer {roster.roster[1]} 2:{player_two_move.get_code()}, {player_two_move.get_guess()}"
+        )
 
         board_string += "\n--------------------"
         return board_string
