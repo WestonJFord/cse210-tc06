@@ -36,6 +36,9 @@ class Move():
 
         return self._guess
     
+    def update_guess(self, guess):
+        self._guess = guess
+
     def check_code(self):
         """Checks the guess against the code and returns a validation string.
         

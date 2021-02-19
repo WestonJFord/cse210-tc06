@@ -51,12 +51,12 @@ class Board:
             convert board data to a string
             Returns: a string
         """
-        board_string = "--------------------"
+        board_string = "\n--------------------"
         board_string += (
-            f"\nPlayer {roster.roster[0]} 1:{player_one_move.get_code()}, {player_one_move.get_guess()}"
+            f"\nPlayer {roster.roster[0].get_name()}:{player_one_move.get_guess()}, {player_one_move.check_code()}"
         )
         board_string += (
-            f"\nPlayer {roster.roster[1]} 2:{player_two_move.get_code()}, {player_two_move.get_guess()}"
+            f"\nPlayer {roster.roster[1].get_name()}:{player_two_move.get_guess()}, {player_two_move.check_code()}"
         )
 
         board_string += "\n--------------------"
@@ -68,4 +68,5 @@ class Board:
         """
         # Build board
         for _ in range(4):
-            self.numbers_to_guess.append(random.randint(1, 9))
+            self.numbers_to_guess.append(str(random.randint(1, 9)))
+        self.numbers_to_guess = ''.join(self.numbers_to_guess)

@@ -4,8 +4,9 @@ class Roster():
     get the current player
     and return the next player'''
     def __init__(self):
+        self.current = 0
         self.roster = []
-        pass
+
     def test_import(self):
         print('Roster')
 
@@ -16,12 +17,8 @@ class Roster():
 
     def get_current(self):
         '''get and return the current player'''
-        if self.next_player() != self.roster[0]:
-            return self.roster[1]
-        else:
-            return self.roster[0]
+        return self.roster[self.current]
 
     def next_player(self):
         '''use current player to return the next player'''
-        if self.get_current() == self.roster[0]:
-            return self.roster[1]
+        self.current = (self.current + 1) % len(self.roster)
