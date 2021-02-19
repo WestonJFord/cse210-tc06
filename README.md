@@ -23,9 +23,16 @@ The project files and folders are organized as follows:
 root                    (project root folder)
 +-- mastermind          (source code for game)
   +-- game              (specific game classes)
+    +-- __init__.py     (python package file)
+    +-- board.py
+    +-- console.py
+    +-- director.py
+    +-- move.py         (Information Holder)
+    +-- player.py
+    +-- roster.py
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
-  +-- move.py           (Information Holder)
+  
 +-- README.md           (general info)
 ```
 
@@ -41,4 +48,3 @@ root                    (project root folder)
 * Lauren Warren sor18014@byui.edu
 * Weston Ford for19008@byui.edu
 * Zach Wilson zachwil99@byui.edu
-
